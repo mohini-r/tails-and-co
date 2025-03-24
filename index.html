@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tails & Co. | Luxury Pet Care</title>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        /* Reset and General Styling */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Open Sans', sans-serif;
+        }
+
+        body {
+            line-height: 1.6;
+            color: #333;
+            background-color: #f5f1e9;
+        }
+
+        /* Sticky Header */
+        .sticky-header {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background-color: #fff;
+        }
+
+        .top-bar {
+            background-color: #1a3c34;
+            padding: 15px 20px;
+            text-align: center;
+        }
+
+        .top-bar h1 {
+            color: #fff;
+            font-size: 1.8rem;
+            font-weight: 600;
+        }
+
+        nav {
+            background-color: #fff;
+            padding: 10px 0;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        nav ul {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+        }
+
+        nav ul li {
+            margin: 0 25px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: #1a3c34;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: color 0.3s;
+        }
+
+        nav ul li a:hover {
+            color: #6b8e23;
+        }
+
+        /* Hero Section */
+        .hero {
+            position: relative;
+            height: 70vh;
+            background: url('images/hero-image.jpg') no-repeat center center/cover;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: #fff;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero h2 {
+            font-size: 3rem;
+            margin-bottom: 15px;
+        }
+
+        .hero p {
+            font-size: 1.4rem;
+            margin-bottom: 25px;
+        }
+
+        .cta-btn {
+            padding: 12px 30px;
+            background-color: #6b8e23;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1.1rem;
+            transition: background-color 0.3s;
+        }
+
+        .cta-btn:hover {
+            background-color: #556b2f;
+        }
+
+        /* About Section */
+        .about {
+            padding: 80px 20px;
+            text-align: center;
+            background-color: #fff;
+        }
+
+        .about h3 {
+            font-size: 2.2rem;
+            margin-bottom: 20px;
+            color: #1a3c34;
+        }
+
+        .about p {
+            max-width: 700px;
+            margin: 0 auto;
+            font-size: 1.1rem;
+        }
+
+        /* Services Section */
+        .services {
+            padding: 80px 20px;
+            background-color: #f5f1e9;
+            text-align: center;
+        }
+
+        .services h3 {
+            font-size: 2.2rem;
+            margin-bottom: 40px;
+            color: #1a3c34;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .service-card {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+        }
+
+        .service-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 5px;
+            transition: opacity 0.3s;
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .service-card:hover img {
+            opacity: 0.85;
+        }
+
+        .service-card h4 {
+            margin: 15px 0 10px;
+            color: #1a3c34;
+            font-size: 1.3rem;
+        }
+
+        .service-card p {
+            font-size: 0.95rem;
+        }
+
+        /* Hours Section */
+        .hours {
+            padding: 80px 20px;
+            text-align: center;
+            background-color: #fff;
+        }
+
+        .hours h3 {
+            font-size: 2.2rem;
+            margin-bottom: 20px;
+            color: #1a3c34;
+        }
+
+        .hours ul {
+            list-style: none;
+            font-size: 1.1rem;
+        }
+
+        /* Contact Section */
+        .contact {
+            padding: 80px 20px;
+            background-color: #f5f1e9;
+            text-align: center;
+        }
+
+        .contact h3 {
+            font-size: 2.2rem;
+            margin-bottom: 20px;
+            color: #1a3c34;
+        }
+
+        .contact-info {
+            margin-bottom: 40px;
+            font-size: 1.1rem;
+        }
+
+        .contact-form iframe {
+            max-width: 700px;
+            width: 100%;
+            height: 818px; /* Matches your embed height */
+            margin: 0 auto;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Footer */
+        .footer {
+            padding: 25px;
+            text-align: center;
+            background-color: #1a3c34;
+            color: #fff;
+            font-size: 0.95rem;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .hero h2 {
+                font-size: 2rem;
+            }
+            .hero p {
+                font-size: 1.1rem;
+            }
+            nav ul {
+                padding: 10px 0;
+            }
+            nav ul li {
+                margin: 0 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Sticky Header -->
+    <header class="sticky-header">
+        <div class="top-bar">
+            <h1>Tails & Co.</h1>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="#about">About</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#hours">Hours</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h2>Luxury Pet Care in Delhi’s Green Park</h2>
+            <p>Where tails wag, and pets are pampered.</p>
+            <button class="cta-btn">Book a Visit</button>
+        </div>
+    </section>
+
+    <!-- About Us Section -->
+    <section id="about" class="about">
+        <h3>About Us</h3>
+        <p>At Tails & Co., we believe every pet deserves the finest care. Nestled in the heart of Green Park, Delhi, our upscale pet boutique offers a sanctuary of luxury and love for your furry companions. Our mission is to elevate pet care with professionalism, warmth, and a touch of elegance.</p>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="services">
+        <h3>Our Services</h3>
+        <div class="services-grid">
+            <div class="service-card">
+                <img src="images/grooming.jpg" alt="Small dog getting bathed in a modern boutique pet grooming salon, bright tiles, leafy plants, cozy lighting">
+                <h4>Grooming</h4>
+                <p>Indulgent spa treatments for your pet’s perfect glow.</p>
+            </div>
+            <div class="service-card">
+                <img src="images/pet-sitting.jpg" alt="A pet sitter cuddling a happy dog and cat on a soft carpet, in a warm stylish home interior">
+                <h4>Pet Sitting</h4>
+                <p>Trusted care in a home-like environment.</p>
+            </div>
+            <div class="service-card">
+                <img src="images/dog-walking.jpg" alt="A fashionable woman walking a golden retriever in Delhi's Green Park at golden hour, trees and walking path in background">
+                <h4>Dog Walking</h4>
+                <p>Stylish strolls through Green Park’s scenic paths.</p>
+            </div>
+            <div class="service-card">
+                <img src="images/pet-supplies.jpg" alt="Display shelf with luxury pet toys, organic treats, stylish collars, elegant packaging in a chic pet boutique">
+                <h4>Premium Pet Supplies</h4>
+                <p>Curated products for the discerning pet parent.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Opening Hours Section -->
+    <section id="hours" class="hours">
+        <h3>Opening Hours</h3>
+        <ul>
+            <li>Mon–Sat: 9 AM – 7 PM</li>
+            <li>Sunday: Closed</li>
+        </ul>
+    </section>
+
+    <!-- Contact Us Section -->
+    <section id="contact" class="contact">
+        <h3>Contact Us</h3>
+        <div class="contact-info">
+            <p><strong>Phone:</strong> 94XXXXXX12</p>
+            <p><strong>Email:</strong> petandco@mlbm.com</p>
+            <p><strong>Address:</strong> 17/2, Green Park, Delhi South 110016</p>
+        </div>
+        <div class="contact-form">
+            <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSfBflc7BBLNnhoy0-_3IKIN-FujUKfCim8sh5AHernZ6iIGrQ/viewform?embedded=true" width="100%" height="818" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>© 2025 Tails & Co. | Follow us on Instagram</p>
+    </footer>
+
+    <script>
+        // CTA button functionality
+        document.querySelector('.cta-btn').addEventListener('click', () => {
+            alert('Booking feature coming soon! Please use the contact form below.');
+        });
+    </script>
+</body>
+</html>
